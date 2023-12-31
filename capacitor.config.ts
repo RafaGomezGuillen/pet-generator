@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'pet-generator',
+  appName: 'Pet Generator',
   webDir: 'dist',
   server: {
     androidScheme: 'https'

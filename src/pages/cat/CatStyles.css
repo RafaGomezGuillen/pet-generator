@@ -1,0 +1,31 @@
+.cat-generator-input {
+  padding: 20px;
+}
+
+.cat-generator-img-container {
+  width: 500px;
+  background: #428cff;
+  margin: 25px auto;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.cat-generator-img-container img {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.cat-generator-img-container a {
+  margin: auto;
+  display: block;
+  text-align: center;
+  margin-bottom: 15px;
+  width: 150px;
+}
+
+@media screen and (max-width: 500px) {
+  .cat-generator-img-container {
+    width: auto;
+    margin: 20px;
+  }
+}

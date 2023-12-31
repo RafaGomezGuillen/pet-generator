@@ -1,0 +1,37 @@
+.dog-generator-input {
+  padding: 20px;
+}
+
+.dog-generator-img-container {
+  width: 500px;
+  background: #428cff;
+  margin: 25px auto;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.dog-generator-img-container img,
+.dog-generator-img-container video {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.dog-generator-img-container-button {
+  display: flex;
+  justify-content: center;
+}
+
+.dog-generator-img-container a {
+  margin: auto;
+  display: block;
+  text-align: center;
+  margin-bottom: 15px;
+  width: 150px;
+}
+
+@media screen and (max-width: 500px) {
+  .dog-generator-img-container {
+    width: auto;
+    margin: 20px;
+  }
+}
