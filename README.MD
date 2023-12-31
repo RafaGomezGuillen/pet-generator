@@ -17,6 +17,9 @@ On android
 - `ionic cap open android`. In Andriod Studio you have to run the app by simulating an Android device or connecting an Android device by USB.
 - If you do not have android folder try `npx cap add android`
 
+## Deploy Page
+- `npm run deploy` 
+
 ## Tech Stack
 - TypeScript
 - React TS
