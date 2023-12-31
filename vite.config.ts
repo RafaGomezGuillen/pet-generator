@@ -8,6 +8,7 @@ export default defineConfig({
     react(),
     legacy()
   ],
+  base: "/pet-generator/"
   test: {
     globals: true,
     environment: 'jsdom',
