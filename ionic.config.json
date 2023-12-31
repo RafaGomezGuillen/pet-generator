@@ -1,0 +1,7 @@
+{
+  "name": "pet-generator",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
