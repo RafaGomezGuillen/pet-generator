@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.pet-generator.starter',
+  appId: 'com.petgenerator.app',
   appName: 'Pet Generator',
   webDir: 'dist',
   server: {
