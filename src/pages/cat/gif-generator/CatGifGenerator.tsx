@@ -31,7 +31,7 @@ const CatGifGenerator: React.FC = () => {
     const promises = Array.from({ length: numGifs }, () => Cat.getRandomGif());
     Promise.all(promises)
       .then((responses) => {
-        const urls = responses.map((r) => r.data._id);
+        const urls = responses.map((r) => r.data.id);
         setCatUrls(urls);
       })
       .catch((e) => {
@@ -80,7 +80,7 @@ const CatGifGenerator: React.FC = () => {
           {catUrls.length < 11 && catUrls.length > 0 && (
             <div className="cat-generator-img-container">
               {catUrls.map((url, index) => (
-                <>
+                <div key={index} className="cat-generator-img">
                   <img
                     key={index}
                     src={"https://cataas.com/cat/gif?" + url}
@@ -89,7 +89,7 @@ const CatGifGenerator: React.FC = () => {
                   <a href={"https://cataas.com/cat/gif?" + url} target="_blank">
                     Download it!
                   </a>
-                </>
+                </div>
               ))}
             </div>
           )}

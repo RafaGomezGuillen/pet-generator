@@ -36,7 +36,7 @@ const CatImageGenerator: React.FC = () => {
     );
     Promise.all(promises)
       .then((responses) => {
-        const urls = responses.map((r) => r.data._id);
+        const urls = responses.map((r) => r.data.id);
         setCatUrls(urls);
       })
       .catch((e) => {
@@ -85,16 +85,12 @@ const CatImageGenerator: React.FC = () => {
           {catUrls.length < 11 && catUrls.length > 0 && (
             <div className="cat-generator-img-container">
               {catUrls.map((url, index) => (
-                <>
-                  <img
-                    key={index}
-                    src={"https://cataas.com/cat?" + url}
-                    alt="Random cat"
-                  />
+                <div key={index}>
+                  <img src={"https://cataas.com/cat?" + url} alt="Random cat" />
                   <a href={"https://cataas.com/cat?" + url} target="_blank">
                     Download it!
                   </a>
-                </>
+                </div>
               ))}
             </div>
           )}
