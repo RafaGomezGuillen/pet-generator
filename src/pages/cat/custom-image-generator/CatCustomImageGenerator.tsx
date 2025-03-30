@@ -18,7 +18,6 @@ import {
 
 const CatCustomImageGenerator: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [generatedTime, setGeneratedTime] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(false);
 
   // Text
@@ -37,21 +36,27 @@ const CatCustomImageGenerator: React.FC = () => {
   const [generatedFilter, setGeneratedFilter] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [generatedType, setGeneratedType] = useState("");
+  const [selectedFit, setSelectedFit] = useState("");
+  const [generatedFit, setGeneratedFit] = useState("");
+  const [selectedPosition, setSelectedPosition] = useState("");
+  const [generatedPosition, setGeneratedPosition] = useState("");
 
   const handlePickerSelect = (value: any) => {
     setSelectedSize(value.size.value);
     setSelectedFilter(value.filter.value);
     setSelectedType(value.type.value);
+    setSelectedFit(value.fit.value);
+    setSelectedPosition(value.position.value);
   };
 
   // Submit button
   const handleSubmit = () => {
-    setGeneratedText(inputText === "" ? "" : `/says/${inputText}`);
+    setGeneratedText(inputText === "" ? "" : `/says/${inputText}?`);
     setGeneratedSize(selectedSize);
     setGeneratedFilter(selectedFilter);
     setGeneratedType(selectedType);
-    const newGeneratedTime = new Date().getTime();
-    setGeneratedTime(newGeneratedTime);
+    setGeneratedFit(selectedFit);
+    setGeneratedPosition(selectedPosition);
     setIsLoading(true);
   };
 
@@ -91,19 +96,19 @@ const CatCustomImageGenerator: React.FC = () => {
                   options: [
                     {
                       text: "Original",
-                      value: "square",
+                      value: "type=square&",
                     },
                     {
                       text: "Medium",
-                      value: "medium",
+                      value: "type=medium&",
                     },
                     {
                       text: "Small",
-                      value: "small",
+                      value: "type=small&",
                     },
                     {
                       text: "Tiny",
-                      value: "xsmall",
+                      value: "type=xsmall&",
                     },
                   ],
                 },
@@ -111,16 +116,20 @@ const CatCustomImageGenerator: React.FC = () => {
                   name: "filter",
                   options: [
                     {
-                      text: "Default",
+                      text: "No filter",
                       value: "",
                     },
                     {
                       text: "Mono",
-                      value: "mono",
+                      value: "filter=mono&",
                     },
                     {
                       text: "Negative",
-                      value: "negate",
+                      value: "filter=negate&",
+                    },
+                    {
+                      text: "Custom",
+                      value: "filter=custom&",
                     },
                   ],
                 },
@@ -129,11 +138,77 @@ const CatCustomImageGenerator: React.FC = () => {
                   options: [
                     {
                       text: "Image",
-                      value: "",
+                      value: "?",
                     },
                     {
                       text: "Gif",
-                      value: "/gif",
+                      value: "/gif?",
+                    },
+                  ],
+                },
+                {
+                  name: "fit",
+                  options: [
+                    {
+                      text: "No fit",
+                      value: "",
+                    },
+                    {
+                      text: "Cover",
+                      value: "fit=cover&",
+                    },
+                    {
+                      text: "Fill",
+                      value: "fit=fill&",
+                    },
+                    {
+                      text: "Inside",
+                      value: "fit=inside&",
+                    },
+                    {
+                      text: "Outside",
+                      value: "fit=outside&",
+                    },
+                  ],
+                },
+                {
+                  name: "position",
+                  options: [
+                    {
+                      text: "Center",
+                      value: "position=center",
+                    },
+                    {
+                      text: "Top",
+                      value: "position=top",
+                    },
+                    {
+                      text: "Right top",
+                      value: "position=right top",
+                    },
+                    {
+                      text: "Right",
+                      value: "position=right",
+                    },
+                    {
+                      text: "Right bottom",
+                      value: "position=right bottom",
+                    },
+                    {
+                      text: "Bottom",
+                      value: "position=bottom",
+                    },
+                    {
+                      text: "Left bottom",
+                      value: "position=left bottom",
+                    },
+                    {
+                      text: "Left",
+                      value: "position=left",
+                    },
+                    {
+                      text: "Left top",
+                      value: "position=left top",
                     },
                   ],
                 },
@@ -156,18 +231,43 @@ const CatCustomImageGenerator: React.FC = () => {
             <IonButton onClick={handleSubmit}>Generate Image</IonButton>
           </div>
           <div className="cat-generator-img-container">
-            {isLoading && <p>Loading...</p>}
-            <img
-              src={`https://cataas.com/cat${generatedType}${generatedText}?filter=${generatedFilter}&type=${generatedSize}&timestamp=${generatedTime}`}
-              alt="Image does not exists."
-              onLoad={() => setIsLoading(false)}
-            />
+            {isLoading && <p>Loading image...</p>}
 
-            <a
-              href={`https://cataas.com/cat${generatedType}${generatedText}?filter=${generatedFilter}&type=${generatedSize}&timestamp=${generatedTime}`}
-            >
-              Download it!
-            </a>
+            {generatedText === "" ? (
+              <>
+                <img
+                  src={`https://cataas.com/cat${generatedType}${generatedSize}${generatedFilter}${generatedFit}${generatedPosition}`}
+                  alt="Image does not exists."
+                  onLoad={() => setIsLoading(false)}
+                />
+
+                <a
+                  href={`https://cataas.com/cat${generatedType}${generatedSize}${generatedFilter}${generatedFit}${generatedPosition}`}
+                >
+                  Download it!
+                </a>
+              </>
+            ) : (
+              <>
+                <img
+                  src={`https://cataas.com/cat${generatedType.replace(
+                    "?",
+                    ""
+                  )}${generatedText}${generatedSize}${generatedFilter}${generatedFit}${generatedPosition}`}
+                  alt="Image does not exists."
+                  onLoad={() => setIsLoading(false)}
+                />
+
+                <a
+                  href={`https://cataas.com/cat${generatedType.replace(
+                    "?",
+                    ""
+                  )}${generatedText}${generatedSize}${generatedFilter}${generatedFit}${generatedPosition}`}
+                >
+                  Download it!
+                </a>
+              </>
+            )}
 
             <IonButton
               expand="block"
@@ -210,7 +310,19 @@ const CatCustomImageGenerator: React.FC = () => {
                 <IonItem>
                   <IonLabel>
                     <h2>Type</h2>
-                    <p>{selectedType !== "" ? selectedType : "image"}</p>
+                    <p>{selectedType !== "" ? generatedType : "Image"}</p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonLabel>
+                    <h2>Fit</h2>
+                    <p>{selectedFit !== "" ? generatedFit : "No fit"}</p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonLabel>
+                    <h2>Position</h2>
+                    <p>{generatedPosition}</p>
                   </IonLabel>
                 </IonItem>
               </IonContent>
