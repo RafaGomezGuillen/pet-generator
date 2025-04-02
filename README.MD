@@ -1,32 +1,59 @@
-# Pet Generator
+# 🐶 Pet Generator
 
-### *React Ionic App that consume multiple APIs to generate multiple Images, GIFS and Videos*
+React Ionic App that consumes multiple APIs to generate images, GIFs, and videos.
+
+🔗 View it live: [Pet Generator Website](https://rafagomezguillen.github.io/pet-generator/)
 
 <img src='public/favicon.png'>
 
-## Run Locally
+## 🚀 Run Locally
 
-- You have to need installed [Node JS](https://nodejs.org/en) and [Ionic](https://ionicframework.com/)
-- Run this command `https://github.com/RafaGomezGuillen/pet-generator.git`
-- Then in the folder project `npm install`
-- `ionic serve` to launch the app by Web
+### ✅ Prerequisites
 
-On android
-- `ionic build`
-- `npx cap copy && npx cap sync`
-- `ionic cap open android`. In Andriod Studio you have to run the app by simulating an Android device or connecting an Android device by USB.
-- If you do not have android folder try `npx cap add android`
+Ensure you have the following installed:
 
-## Deploy Page
-- `npm run deploy` 
+- [Node JS](https://nodejs.org/en)
+- [Ionic Framework](https://ionicframework.com/)
 
-## Tech Stack
-- TypeScript
-- React TS
-- Ionic 
-- Capacitor
 
-## APIs
+### 📥 Installation
+
+Clone the repository and install dependencies:
+
+```cmd
+# Clone the repository
+git clone https://github.com/RafaGomezGuillen/pet-generator.git
+
+# Navigate into the project directory
+cd pet-generator
+
+# Install dependencies
+npm install
+```
+
+### 🏃 Running the Application
+
+To launch the app in a web browser:
+
+```cmd
+ionic serve
+```
+
+### 🚀 Deployment
+
+Deploy the project using:
+
+```cmd
+npm run deploy
+```
+
+🛠 Tech Stack
+
+- **TypeScript**
+- **React TS**
+- **Ionic Framework**
+
+## 🌐 APIs Used
 
 - [Cataas](https://cataas.com/#/)
 - [Dog API](https://dog.ceo/dog-api/)
