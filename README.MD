@@ -4,7 +4,9 @@ React Ionic App that consumes multiple APIs to generate images, GIFs, and videos
 
 🔗 View it live: [Pet Generator Website](https://rafagomezguillen.github.io/pet-generator/)
 
-<img src='public/favicon.png'>
+## 🎥 Watch the YouTube video to see the pets in action!
+
+[![Watch the video](https://img.youtube.com/vi/_msSj4NIROc/0.jpg)](https://www.youtube.com/watch?v=_msSj4NIROc)
 
 ## 🚀 Run Locally
 
